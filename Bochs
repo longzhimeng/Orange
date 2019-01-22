@@ -1,0 +1,19 @@
+遇到问题：
+1.ubuntu14.04 安装bochs:
+第一步：
+sudo apt-get install build-essential 
+sudo apt-get install xorg-dev 
+sudo apt-get install bison 
+sudo apt-get install g++ 
+
+第二步：
+1.下载安装包https://sourceforge.net/projects/bochs/files/ 
+2.解压下载的源代码：
+tar zxvf bochs-2.6.8.tar.gz
+3.进入bochs-2.6.8目录，运行configure脚本，它会测试你的机器，C/C++编译器以及一些库，用来判断何种配置适合于你的机器。运行：
+./configure --enable-debugger --enable-disasm
+4.make
+5.make install
+
+2.学习手册
+http://bochs.sourceforge.net/doc/docbook/user/index.html
