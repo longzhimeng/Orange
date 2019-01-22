@@ -1,0 +1,9 @@
+1.编译boot.asm:nasm boot.asm -o boot.bin
+2.制作一个软盘映像a.img：
+zhaoxiao@zhaoxiao:~/Documents/work/tools/bochs-2.6.9$ bximage
+3.查看软盘a.img文件格式：hexdump a.img
+4.将boot.bin写入a.img:
+dd if=boot.bin of=a.img bs=512 count=1 conv=notrunc
+5.再次查看a.img：hexdump a.img
+6.执行bochs -f bochsrc
+
