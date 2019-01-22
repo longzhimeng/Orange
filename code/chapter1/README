@@ -6,4 +6,16 @@ zhaoxiao@zhaoxiao:~/Documents/work/tools/bochs-2.6.9$ bximage
 dd if=boot.bin of=a.img bs=512 count=1 conv=notrunc
 5.再次查看a.img：hexdump a.img
 6.执行bochs -f bochsrc
+You can also start bochs with the -q option to skip these menus.
+1. Restore factory default configuration
+2. Read options from...
+3. Edit options
+4. Save options to...
+5. Restore the Bochs state from...
+6. Begin simulation
+7. Quit now
+
+Please choose one: [6]
+
+按回车键执行即可。
 
