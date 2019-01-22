@@ -1,0 +1,18 @@
+问题：
+1.Error:运行bochs时，出现错误”bochsrc:10: vgaromimage directive malformed，“
+Solution: 
+将bochsrc文件中第10行vgaromimage: /usr/share/vgabios/vgabios.bin改为：
+vgaromimage: file=/usr/share/vgabios/vgabios.bin
+
+2.Error:运行bochs时，出现错误
+>>PANIC<< bochsrc:25: 'keyboard_mapping' is deprecated - use 'keyboard' option instead.
+Solution:
+将keyboard_mapping:map=/usr/share/bochs/keymaps/x11-pc-us.map改为：
+keyboard: map=/usr/share/bochs/keymaps/x11-pc-us.map 
+
+3.Error:运行bochs时，出现错误
+>>PANIC<< bochsrc:25: keyboard directive malformed.
+Solution:
+将keyboard: map=/usr/share/bochs/keymaps/x11-pc-us.map 改为
+keyboard: keymap=/usr/share/bochs/keymaps/x11-pc-us.map 
+
