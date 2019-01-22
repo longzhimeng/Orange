@@ -1,4 +1,4 @@
-问题：
+Problems：
 1.Error:运行bochs时，出现错误”bochsrc:10: vgaromimage directive malformed，“
 Solution: 
 将bochsrc文件中第10行vgaromimage: /usr/share/vgabios/vgabios.bin改为：
