@@ -52,8 +52,9 @@ gdbstub:enabled=1,port=1234,text_base=0,data_base=0,bss_base=0
 
 .bashrc
 #bochs
-Bochs_Path=/home/zhaoxiao/Documents/work/tools/bochs-2.6.9
-alias bochs='$Bochs_Path/bochs -f $Bochs_Path/bochsrc.bxrc' 
+BXSHARE=/usr/local/share/bochs
+bochs_path=/home/zhaoxiao/Documents/work/tools/bochs-2.6.9
+alias bochs='$bochs_path/bochs -f $bochs_path/bochsrc.bxrc' 
 
 3.bochs学习手册
 http://bochs.sourceforge.net/doc/docbook/user/index.html
