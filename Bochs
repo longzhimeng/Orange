@@ -88,3 +88,11 @@ Examples:
 This tells Bochs what VGA ROM BIOS to load (at 0xC0000).
 A VGA BIOS from Elpin Systems, Inc. as well as a free LGPL'd VGA BIOS are provided in the source and binary distributions.
 Note: Please check with the vga option to decide what VGA BIOS to use.
+
+4).The Bochs debugger gui
+The graphical front-end for the Bochs command line debugger is available for Windows and GTK2 hosts.
+To use the gui debugger, you must configure Bochs with the default debugger switches and the --enable-debugger-gui flag. For example:
+./configure --enable-debugger --enable-disasm --enable-debugger-gui
+At runtime you need to add the value gui_debug to the display_library options parameter in order to use the gui instead of the command line debugger. This example shows how to use it with the 'x' gui:
+display_library: x, options="gui_debug"
+The gui debugger consists of a gui window with a menu bar, a button bar and some child windows that show the cpu registers, disassembler output, memory dump and the internal debugger output. A command prompt for entering debugger commands is also available.
