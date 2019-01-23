@@ -1,0 +1,12 @@
+1.Gui debugger常用命令:
+c		Continue executing
+s [count]		(Step): execute count instructions; default is 1.
+q		Quit debugger and execution.
+Ctrl-C		stop execution, and return to command line prompt
+lb addr		Set a linear address instruction breakpoint
+info break		Display state of all current breakpoints
+bpe n		Enable a breakpoint
+bpd n		Disable a breakpoint
+del n		Delete a breakpoint
+
+详见：http://bochs.sourceforge.net/doc/docbook/user/internal-debugger.html
