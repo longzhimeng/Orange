@@ -1,4 +1,4 @@
-遇到问题：
+Bochs install：
 1.ubuntu14.04 安装bochs:
 第一步：
 sudo apt-get install build-essential 
@@ -54,3 +54,25 @@ alias bochs='$Bochs_Path/bochs -f $Bochs_Path/bochsrc.bxrc'
 
 2.学习手册
 http://bochs.sourceforge.net/doc/docbook/user/index.html
+bochs配置项：
+1).megs
+Examples:
+  megs: 32
+  megs: 128
+This option sets the 'guest' and 'host' memory parameters to the same value. In all other cases the 'memory' option should be used instead.
+
+2).romimage
+Examples:
+  romimage: file=bios/BIOS-bochs-latest, options=fastboot
+  romimage: file=$BXSHARE/BIOS-bochs-legacy
+  romimage: file=mybios.bin, address=0xfff80000
+The ROM BIOS controls what the PC does when it first powers on. Normally, you can use a precompiled BIOS in the source or binary distribution called BIOS-bochs-latest. The default ROM BIOS is usually loaded starting at address 0xfffe0000, and it is exactly 128k long. The legacy version of the Bochs BIOS is usually loaded starting at address 0xffff0000, and it is exactly 64k long. You can use the environment variable $BXSHARE to specify the location of the BIOS. The usage of external large BIOS images (up to 512k) at memory top is now supported, but we still recommend to use the BIOS distributed with Bochs. The start address is optional, since it can be calculated from image size. The Bochs BIOS currently supports only the option "fastboot" to skip the boot menu delay.
+
+3).vgaromimage
+Examples:
+  vgaromimage: file=bios/VGABIOS-elpin-2.40
+  vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest
+  vgaromimage: file=$BXSHARE/VGABIOS-lgpl-latest-cirrus
+This tells Bochs what VGA ROM BIOS to load (at 0xC0000).
+A VGA BIOS from Elpin Systems, Inc. as well as a free LGPL'd VGA BIOS are provided in the source and binary distributions.
+Note: Please check with the vga option to decide what VGA BIOS to use.
