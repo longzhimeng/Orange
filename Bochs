@@ -12,7 +12,19 @@ sudo apt-get install g++
 tar zxvf bochs-2.6.9.tar.gz
 3.进入bochs-2.6.9目录，运行configure脚本，它会测试你的机器，C/C++编译器以及一些库，用来判断何种配置适合于你的机器。运行：
 zhaoxiao@zhaoxiao:~/Documents/work/tools/bochs-2.6.9$ 
-./configure --enable-debugger --enable-disasm --enable-gdb-stub
+./configure --enable-debugger --enable-disasm 
+
+Note：
+To use the debugger, you must configure Bochs with the --enable-debugger and --enable-disasm flags. 
+For example: ./configure --enable-debugger --enable-disasm
+
+To use the gui debugger, you must configure Bochs with the default debugger switches and the --enable-debugger-gui flag. 
+For example: ./configure --enable-debugger --enable-disasm --enable-debugger-gui
+
+Don't compile the debugger and gdb simultaneously,otherwise it will report the 
+"error: --enable-debugger and --enable-gdb-stub are mutually exclusive"
+./configure --enable-debugger --enable-disasm --enable-debugger-gui --enable-gdb-stub
+
 4.make
 5.make install
 
