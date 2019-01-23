@@ -21,3 +21,14 @@ keyboard: keymap=/usr/share/bochs/keymaps/x11-pc-us.map
 Solution:
 在最开始用.configure生成MakeFile配置文件的时候，如果没有添加gdb远程调试那个选项，但是又在配置文件
 中开启了远程调试这个功能，就会报这个错，直接注释掉配置文件中的gdbstub那一行。
+
+5.添加配置编译报错"Unknown x11 option 'gui_debug'"
+#gui debugger for display
+display_library: x,options="gui_debug"
+Solution:
+怀疑是有些包没有安装，使用如下命令安装然后编译测试没有问题。
+sudo apt-get install gcc g++ gdb xorg-dev libgtk2.0-dev build-essential libc6-dev libwxgtk2.8-dev libx11-xcb-dev vgabios bximage
+sudo ./configure --enable-debugger --with-x11 --with-wx --enable-disasm --enable-all-optimizations --enable-readline  --enable-debugger-gui
+sudo make 
+sudo make install
+参考https://www.ay27.com/2015/05/09/2015-08-09-build-operating-system-development-environment/
