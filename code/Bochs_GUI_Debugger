@@ -9,5 +9,7 @@ bpe n		Enable a breakpoint
 bpd n		Disable a breakpoint
 del n		Delete a breakpoint
 trace-reg on Show the cpu registers when you use the 'n' command
+print-stack  show the stack information
+u start end  disassembly the code between the start address and the end address
 
-详见：http://bochs.sourceforge.net/doc/docbook/user/internal-debugger.html
+具体详见：http://bochs.sourceforge.net/doc/docbook/user/internal-debugger.html
