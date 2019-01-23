@@ -1,18 +1,12 @@
-基于bochs + bochs GUI debugger install:
-1.ubuntu14.04安装bochs:
-第一步：
-sudo apt-get install build-essential 
-sudo apt-get install xorg-dev 
-sudo apt-get install bison 
-sudo apt-get install g++ 
-
-第二步：
-1.下载安装包https://sourceforge.net/projects/bochs/files/ 
-2.解压下载的源代码：
+1.基于bochs + bochs GUI debugger install:
+1>.sudo apt-get install gcc bison g++ gdb xorg-dev libgtk2.0-dev build-essential libc6-dev libwxgtk2.8-dev libx11-xcb-dev vgabios bximage
+2>.下载安装包并解压下载的源代码:https://sourceforge.net/projects/bochs/files/ 
 tar zxvf bochs-2.6.9.tar.gz
-3.进入bochs-2.6.9目录，运行configure脚本，它会测试你的机器，C/C++编译器以及一些库，用来判断何种配置适合于你的机器。运行：
-zhaoxiao@zhaoxiao:~/Documents/work/tools/bochs-2.6.9$ 
-./configure --enable-debugger --with-x11 --with-wx --enable-disasm --enable-all-optimizations --enable-readline  --enable-debugger-gui
+3>.进入bochs-2.6.9目录，运行configure脚本：
+$cd bochs-2.6.9
+$sudo ./configure --enable-debugger --with-x11 --with-wx --enable-disasm --enable-all-optimizations --enable-readline  --enable-debugger-gui
+$sudo make -j8
+$sudo make install
 
 Note：
 To use the debugger, you must configure Bochs with the --enable-debugger and --enable-disasm flags. 
@@ -25,11 +19,8 @@ Don't compile the debugger and gdb simultaneously,otherwise it will report the
 "error: --enable-debugger and --enable-gdb-stub are mutually exclusive"
 ./configure --enable-debugger --enable-disasm --enable-debugger-gui --enable-gdb-stub
 
-4.make
-5.make install
 
-第三步：
-配置文件bochsrc.bxrc如下所示：
+2.配置文件bochsrc.bxrc:
 # 关键字为：megs
 megs:32
 
@@ -64,9 +55,10 @@ gdbstub:enabled=1,port=1234,text_base=0,data_base=0,bss_base=0
 Bochs_Path=/home/zhaoxiao/Documents/work/tools/bochs-2.6.9
 alias bochs='$Bochs_Path/bochs -f $Bochs_Path/bochsrc.bxrc' 
 
-2.学习手册
+3.bochs学习手册
 http://bochs.sourceforge.net/doc/docbook/user/index.html
-bochs配置项：
+
+4.bochs配置项：
 1).megs
 Examples:
   megs: 32
