@@ -1,4 +1,4 @@
-Bochs install：参考https://www.ay27.com/2015/05/09/2015-08-09-build-operating-system-development-environment/
+Bochs install：
 1.ubuntu14.04 安装bochs:
 第一步：
 sudo apt-get install build-essential 
