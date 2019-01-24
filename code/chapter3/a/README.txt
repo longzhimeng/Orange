@@ -1,0 +1,41 @@
+1.下载FreeDos安装包，解压后得到freedos-img，进入文件夹将其中a.img的文件重命名为freedos.img。
+2.使用bximage生成一个新的软盘映像起名为pm.img。
+3.修改当前工作目录下的bochsrc配置文件
+增加如下几行：
+floppya: 1_44="freedos.img", status=inserted
+floppyb: 1_44="pm.img", status=inserted
+boot: a
+4.启动bochs：bochs  -f  bochsrc，并且执行"c"
+You can also start bochs with the -q option to skip these menus.
+
+1. Restore factory default configuration
+2. Read options from...
+3. Edit options
+4. Save options to...
+5. Restore the Bochs state from...
+6. Begin simulation
+7. Quit now
+
+Please choose one: [6] 
+00000000000i[      ] installing x module as the Bochs GUI
+00000000000i[      ] using log file bochsout.txt
+Next at t=0
+(0) [0x0000fffffff0] f000:fff0 (unk. ctxt): jmpf 0xf000:e05b          ; ea5be000f0
+<bochs:1> c
+
+5.执行c命令之后，启动freedos，然后执行如下命令，格式化B盘并切换到B盘：
+format.ext b:
+b:
+
+6.将pmtest1.asm中的0x7c00改为0100h,并重新编译：
+nasm pmtest1.asm  -o pmtest1.com
+
+7.将pmtest1.com复制到虚拟软驱pm.img中，具体操作步骤如下：
+1)sudo mkdir /mnt/floppy
+2)sudo mount -o loop pm.img /mnt/floppy
+3)sudo cp pmtest1.com   /mnt/floppy/
+4)sudo umount/mnt/floppy 
+
+8.在freedos B盘符下输入:\pmtest1.com
+
+9.最后能看到显示红色P.
