@@ -98,7 +98,7 @@
     Examples: set eax = 2+2/2
               set esi = 2*eax+ebx
 
-  r           List of CPU registers and their contents
+    r           List of CPU registers and their contents
 
 
 1.6. Disassembly commands
@@ -154,6 +154,8 @@
   q                           quit debugger and execution
   quit
   exit
+  trace-reg on               执行单步调试的时候都会显示寄存器的当前状态
+  sreg                       print the segment register
 
 2.如何从引导扇区开始设置断点?
 BIOS被载入内存中运行,其引导扇区的地址一般都是在0x7c00,因为在实模式下,逻辑地址和物理地址是一一对应的,
