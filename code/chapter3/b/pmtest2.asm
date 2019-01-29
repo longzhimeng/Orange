@@ -4,8 +4,11 @@
 ; ==========================================
 
 %include	"pm.inc"	; 常量, 宏, 以及一些说明
-
+;From 0000h to 00FFh is all the Program Segment Prefix or PSP.
+;com file locate at offset 0100h immediately following the PSP,
 org	0100h
+	xchg bx,bx ;albert
+	jmp $
 	jmp	LABEL_BEGIN
 
 [SECTION .gdt]
@@ -155,8 +158,9 @@ LABEL_REAL_ENTRY:		; 从保护模式跳回到实模式就到了这里
 
 	sti			; 开中断
 
-	mov	ax, 4c00h	; `.
-	int	21h		; /  回到 DOS
+	;refer to [Kip R. Irvine]Assembly Language for x86 Processors page 14.2
+	mov	ax, 4c00h	;terminate process,AH=4Ch,AL=00h
+	int	21h		; /  回到 DOS,MS-DOS interrupt
 ; END of [SECTION .s16]
 
 
