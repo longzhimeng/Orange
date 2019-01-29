@@ -12,4 +12,11 @@ trace-reg on Show the cpu registers when you use the 'n' command
 print-stack  show the stack information
 u start end  disassembly the code between the start address and the end address
 
+2.如何从引导扇区开始设置断点?
+BIOS被载入内存中运行,其引导扇区的地址一般都是在0x7c00,因为在实模式下,逻辑地址和物理地址是一一对应的,
+所以我们可以在启动bochs调试的命令行下输入:
+pb 0x7c00 或者 vb 0:0x7c00
+就着输入:c
+bochs就会在0x7c00处停下
+
 具体详见：http://bochs.sourceforge.net/doc/docbook/user/internal-debugger.html
