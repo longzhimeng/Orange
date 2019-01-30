@@ -15,3 +15,8 @@ everything : $(BIN)
 $(BIN) : $(SRC)
 	nasm $< -o $@
 
+bochs:
+	bochs -f bochsrc
+
+clean:
+	rm -f $(BIN)
